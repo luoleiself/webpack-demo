@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- cdn -->
+    <% htmlWebpackPlugin.options.cdnConfig.forEach(function(item){ if(item.css){%>
+      <link href="<%= item.css %>" rel="stylesheet" />
+    <% }}) %>
+    <% htmlWebpackPlugin.options.cdnConfig.forEach(function(item){ if(item.js){ %>
+      <script defer type="text/javascript" src="<%= item.js %>"></script>
+    <% }}) %>
+    <!-- dll -->
+    <% htmlWebpackPlugin.options.vendor.forEach(function(item){ %>
+      <script defer type="text/javascript" src="<%= item %>"></script>
+    <% }) %>
+  </head>
+  <body>
+    <div>Add cdn externals resource link base on html-webpack-plugin</div>
+  </body>
+</html>

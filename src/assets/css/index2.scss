@@ -1,0 +1,12 @@
+body {
+  background: rgba(00, 00, 00, 0.3);
+  .body {
+    font-size: 24px;
+    height: 100px;
+    width: 100px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transform-origin: center center;
+    transform: rotate(15deg);
+  }
+}
