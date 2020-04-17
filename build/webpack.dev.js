@@ -11,7 +11,7 @@ module.exports = merge(common, {
   plugins: [
     // new DashboardPlugin(),  // webpack-dev-server 强化插件，美化控制台输出信息
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin() // 显示模块的相对路径
+    // new webpack.NamedModulesPlugin() // 显示模块的相对路径 webpack 4 以后在 optimization.namedModules 自动配置
   ],
   devServer: {
     contentBase: path.resolve(__dirname, '../dist'),
