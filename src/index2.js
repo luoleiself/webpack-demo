@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
 import '@/assets/css/index2.scss';
+import '@/assets/css/common.scss';
 
 import { square, cube, test_name } from './math';
 

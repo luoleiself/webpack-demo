@@ -12,7 +12,7 @@ export function test1() {
   console.log(arguments.length);
 }
 
-export const test_name = `
+export const TEST_NAME = `
 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita aut dolorum amet nisi facere itaque cum illum esse corporis molestiae ipsum iure placeat perferendis libero iste, sit nihil minima reiciendis?
 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita aut dolorum amet nisi facere itaque cum illum esse corporis molestiae ipsum iure placeat perferendis libero iste, sit nihil minima reiciendis?
 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita aut dolorum amet nisi facere itaque cum illum esse corporis molestiae ipsum iure placeat perferendis libero iste, sit nihil minima reiciendis?

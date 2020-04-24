@@ -1,4 +1,30 @@
 body {
+  font-size: 18px;
+  p {
+    border: 1px solid #ddd;
+  }
+  .bg_rgba {
+    margin: 50px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background: rgba(00, 00, 00, 0.3);
+    transform-origin: center center;
+    transform: rotate(45deg);
+  }
+  .flex_box {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+  }
+  .head {
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: url(../images/timg.jpg);
+  }
   background: rgba(00, 00, 00, 0.3);
   .body {
     font-size: 24px;
