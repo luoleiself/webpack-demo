@@ -9,6 +9,9 @@ const common = require("./webpack.common");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // 开启gzip压缩
 const CompressWebpaclPlugin = require("compression-webpack-plugin");
+// 导入打包分析工具
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 const pwd = process.cwd();
 
@@ -25,13 +28,24 @@ let prod = {
     new webpack.optimize.LimitChunkCountPlugin({
       minChunkSize: 30000,
     }),
+  ],
+};
+
+// 开启 gzip 压缩
+if (process.env.GZIP === "true") {
+  prod.plugins.push(
     new CompressWebpaclPlugin({
       test: /\.(j|cs)s$/i,
       threshold: 8192,
       minRatio: 0.8,
-    }),
-  ],
-};
+    })
+  );
+}
+
+// 使用打包分析工具
+if (process.env.ANALYZE === "true") {
+  prod.plugins.push(new BundleAnalyzerPlugin());
+}
 
 // dll 优化
 try {

@@ -55,10 +55,12 @@ let rules = [
         loader: "file-loader",
         options: {
           outputPath: "fonts/",
+          name: "[hash:12].[ext]",
         },
       },
     ],
   },
   { test: /\.xml$/i, use: ["xml-loader"] },
 ];
+
 module.exports = rules;

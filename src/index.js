@@ -6,7 +6,7 @@ import img from "@/assets/images/timg.jpg";
 
 import data from "./data.xml";
 
-import { cube, square, TEST_NAME } from "./math";
+import { cube, square } from "./math";
 
 import { debounce } from "lodash";
 
@@ -52,7 +52,7 @@ window.onload = function () {
       // console.log(xhr);
       // console.log(React);
       console.log(square(6));
-      console.log(TEST_NAME);
+      // console.log(TEST_NAME);
     });
 
   app.appendChild(btn);

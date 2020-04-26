@@ -16,9 +16,9 @@ const rules = require("./webpack.rules.conf"); // 导入 loader 配置
 const utils = require("./utils"); // 导入工具方法
 
 const devMode = process.env.NODE_ENV !== "production"; // 记录 mode
-const pwd = process.cwd();
-// 是否使用CDN, 可使用cross-env 设置此变量启用CDN
-const CDN = process.env.CDN ? process.env.CDN : false;
+const PWD = process.cwd();
+// 是否使用 CDN, 可使用 cross-env 设置此变量启用CDN
+const CDN = process.env.CDN === "true" ? true : false;
 
 // 获取 externals 扩展配置
 const externals =
@@ -31,8 +31,9 @@ const vendors =
     ? vendorKeys.map((item) => `./dll/${item}.dll.js`)
     : [];
 
+// 公共配置项
 let common = {
-  context: pwd,
+  context: PWD,
   entry: {
     index: "./src/index.js",
     // index2: "./src/index2.js",
@@ -40,7 +41,7 @@ let common = {
   output: {
     filename: "js/[name].[hash:8].bundle.js",
     chunkFilename: "js/[id].[chunkhash:8].chunk.js",
-    path: path.resolve(pwd, "./dist"),
+    path: path.resolve(PWD, "./dist"),
     hotUpdateChunkFilename: "[id].[hash:8].hot-update.js",
   },
   module: {
@@ -48,7 +49,7 @@ let common = {
   },
   resolve: {
     alias: {
-      "@": path.resolve(pwd, "./src"),
+      "@": path.resolve(PWD, "./src"),
     },
   },
   externals: externals,
@@ -91,7 +92,7 @@ let common = {
 
 // 使用模板
 try {
-  let files = fs.readdirSync(path.resolve(pwd, "./public/template")); // {withFileTypes: true} 返回 Dirent 类实例
+  let files = fs.readdirSync(path.resolve(PWD, "./public/template")); // {withFileTypes: true} 返回 Dirent 类实例
   files = files.map((item) => item.split(".")[0]);
   let keys = [];
   if (Object.prototype.toString.call(common.entry) === "[object Object]") {
@@ -134,19 +135,19 @@ function mixGenerateTpl(template, filename, ...rest) {
     ...rest[0],
   };
   if (template) {
-    config.template = path.resolve(pwd, `./public/template/${template}.html`);
+    config.template = path.resolve(PWD, `./public/template/${template}.html`);
   }
   if (filename) {
-    config.filename = path.resolve(pwd, `./dist/${filename}.html`);
+    config.filename = path.resolve(PWD, `./dist/${filename}.html`);
   }
   common.plugins.push(new HtmlWebpackPlugin(config));
 }
 
-// 生产环境 启用copy-webpack-plugin
+// 生产环境 启用 copy-webpack-plugin
 !devMode &&
   common.plugins.push(
     new CopyWebpackPlugin([
-      { from: path.resolve(pwd, "./public/dll"), to: "./dll" },
+      { from: path.resolve(PWD, "./public/dll"), to: "./dll" },
     ])
   );
 
