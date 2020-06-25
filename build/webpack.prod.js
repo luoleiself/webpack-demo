@@ -28,19 +28,14 @@ let prod = {
     new webpack.optimize.LimitChunkCountPlugin({
       minChunkSize: 30000,
     }),
-  ],
-};
-
-// 开启 gzip 压缩
-if (process.env.GZIP === "true") {
-  prod.plugins.push(
+    // 默认开启 gzip 压缩
     new CompressWebpaclPlugin({
       test: /\.(j|cs)s$/i,
       threshold: 8192,
       minRatio: 0.8,
-    })
-  );
-}
+    }),
+  ],
+};
 
 // 使用打包分析工具
 if (process.env.ANALYZE === "true") {

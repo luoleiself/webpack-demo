@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const webpack = require('webpack');
 
-const utils = require('./utils');
+const vendors = require('../config/vendors.conf.json');
 const pwd = process.cwd();
 
 delFiles(path.resolve(pwd, './public/dll'));
@@ -26,7 +26,7 @@ function delFiles(dir) {
 
 module.exports = {
   mode: 'production',
-  entry: utils.vendors,
+  entry: vendors,
   output: {
     path: path.resolve(pwd, './public/dll'),
     filename: '[name].dll.js',

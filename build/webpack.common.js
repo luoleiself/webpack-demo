@@ -14,23 +14,31 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const rules = require("./webpack.rules.conf"); // 导入 loader 配置
 const utils = require("./utils"); // 导入工具方法
+const vendorsConf = require("../config/vendors.conf.json");
+const externalsConf = require("../config/externals.conf.json");
 
 const devMode = process.env.NODE_ENV !== "production"; // 记录 mode
 const PWD = process.cwd();
 // 是否使用 CDN, 可使用 cross-env 设置此变量启用CDN
 const CDN = process.env.CDN === "true" ? true : false;
-
-// 获取 externals 扩展配置
-const externals =
-  CDN && !devMode ? utils.getExternals(utils.externalConfig) : {};
-const externalConfig = CDN && !devMode ? utils.externalConfig : [];
-// 提取 vendor 配置
-const vendorKeys = Object.keys(utils.vendors);
-const vendors =
-  vendorKeys.length > 0 && !devMode
-    ? vendorKeys.map((item) => `./dll/${item}.dll.js`)
-    : [];
-
+let cdnList = [],
+  externalsKeys = {},
+  vendors = [];
+if (!devMode) {
+  if (CDN) {
+    cdnList = utils.generateCdnExternals(externalsConf.list) || []; // 获取 externals 扩展配置
+    for (let i = 0, len = cdnList.length; i < len; i++) {
+      externalsKeys[cdnList[i].name] = cdnList[i].scope;
+    }
+  } else {
+    // 提取 vendor 配置
+    const vendorKeys = Object.keys(vendorsConf);
+    vendors =
+      vendorKeys.length > 0
+        ? vendorKeys.map((item) => `./dll/${item}.dll.js`)
+        : [];
+  }
+}
 // 公共配置项
 let common = {
   context: PWD,
@@ -52,7 +60,7 @@ let common = {
       "@": path.resolve(PWD, "./src"),
     },
   },
-  externals: externals,
+  externals: externalsKeys,
   plugins: [new CleanWebpackPlugin(), new webpack.ProgressPlugin()],
   optimization: {
     splitChunks: {
@@ -130,7 +138,7 @@ function mixGenerateTpl(template, filename, ...rest) {
   let config = {
     title: "hello webpack",
     scriptLoading: "defer",
-    cdnConfig: externalConfig,
+    cdnConfig: cdnList,
     vendor: vendors,
     ...rest[0],
   };
