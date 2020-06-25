@@ -1,0 +1,15 @@
+{
+  "vue": [
+    "vue",
+    "vue-router",
+    "axios"
+  ],
+  "react": [
+    "react",
+    "react-dom"
+  ],
+  "common": [
+    "jquery",
+    "lodash"
+  ]
+}
