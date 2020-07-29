@@ -6,10 +6,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-// 压缩 js
-const TerserPlugin = require("terser-webpack-plugin");
-// 压缩 css，webpack v5 开始使用 optimization.minimizer 配置项
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const rules = require("./webpack.rules.conf"); // 导入 loader 配置
@@ -83,15 +79,6 @@ let common = {
         },
       },
     },
-    minimizer: [
-      new TerserPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true,
-        extractComments: false, // 是否抽离 vendor 文件中的 license 注释并输出到 [vendor].LICENSE.txt
-      }),
-      new OptimizeCSSAssetsPlugin({}),
-    ],
     // runtimeChunk: {
     //   name: 'runtime' // 创建一个在所有生成 chunk 之间共享的运行时文件
     // }

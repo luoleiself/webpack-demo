@@ -5,6 +5,10 @@ const webpack = require("webpack");
 const merge = require("webpack-merge");
 const common = require("./webpack.common");
 
+// 压缩 js
+const TerserPlugin = require("terser-webpack-plugin");
+// 压缩 css，webpack v5 开始使用 optimization.minimizer 配置项
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 //  抽离 css 插件, webpack v4开始代替 ExtractTextWebpackPlugin
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // 开启gzip压缩
@@ -18,6 +22,20 @@ const pwd = process.cwd();
 let prod = {
   mode: "production",
   devtool: "source-map",
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true,
+        extractComments: false, // 是否抽离 vendor 文件中的 license 注释并输出到 [vendor].LICENSE.txt
+      }),
+      new OptimizeCSSAssetsPlugin({}),
+    ],
+    // runtimeChunk: {
+    //   name: 'runtime' // 创建一个在所有生成 chunk 之间共享的运行时文件
+    // }
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "./css/[name].[hash:8].min.css",
