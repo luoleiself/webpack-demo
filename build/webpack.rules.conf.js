@@ -55,7 +55,7 @@ let rules = [
         loader: "file-loader",
         options: {
           outputPath: "fonts/",
-          name: "[hash:12].[ext]",
+          name: "[hash:10].[ext]",
         },
       },
     ],

@@ -1,3 +1,267 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("../fonts/icomoon.eot?teml4j");
+  src: url("../fonts/icomoon.eot?teml4j#iefix") format("embedded-opentype"),
+    url("../fonts/icomoon.ttf?teml4j") format("truetype"),
+    url("../fonts/icomoon.woff?teml4j") format("woff"),
+    url("../fonts/icomoon.svg?teml4j#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-share {
+  content: "\5a";
+  color: #44494d;
+}
+.icon-shouc {
+  content: "\53";
+}
+.icon-licked {
+  content: "\54";
+}
+.icon-shouc-h {
+  content: "\55";
+}
+.icon-licked-h {
+  content: "\56";
+}
+
+.icon-newLogo {
+  content: "\52";
+  color: #fff;
+}
+.icon-shopcar {
+  content: "\5f";
+}
+.icon-time {
+  content: "\29";
+}
+.icon-medal {
+  content: "\28";
+}
+
+.icon-jt {
+  content: "\30";
+}
+.icon-huan,
+.icon-huan1 {
+  content: "\51";
+}
+
+.icon-eye {
+  content: "\57";
+}
+
+.icon-select {
+  content: "\50";
+}
+.icon-video {
+  content: "\4d";
+}
+.icon-arrow {
+  content: "\41";
+}
+.icon-mobile {
+  content: "\7a";
+}
+.icon-lrt {
+  content: "\21";
+}
+.icon-collect {
+  content: "\23";
+}
+.icon-used {
+  content: "\24";
+}
+.icon-lock {
+  content: "\25";
+}
+.icon-get {
+  content: "\26";
+}
+.icon-girl {
+  content: "\2a";
+}
+.icon-diamonds {
+  content: "\2b";
+}
+.icon-logo {
+  content: "\31";
+}
+.icon-rt {
+  content: "\32";
+}
+.icon-liked {
+  content: "\33";
+}
+.icon-like {
+  content: "\34";
+}
+.icon-like2 {
+  content: "\35";
+}
+.icon-liked2 {
+  content: "\36";
+}
+.icon-ranking {
+  content: "\37";
+}
+.icon-cmt {
+  content: "\38";
+}
+.icon-cmt2 {
+  content: "\39";
+}
+.icon-mutuafollow {
+  content: "\3d";
+}
+.icon-lt {
+  content: "\40";
+}
+.icon-btom {
+  content: "\42";
+}
+.icon-disabled {
+  content: "\44";
+}
+.icon-edit {
+  content: "\45";
+}
+.icon-yyzz {
+  content: "\46";
+}
+.icon-ppsq {
+  content: "\47";
+}
+.icon-map {
+  content: "\48";
+}
+.icon-rocket {
+  content: "\49";
+}
+.icon-notepad {
+  content: "\4a";
+}
+.icon-tel {
+  content: "\4b";
+}
+.icon-shome {
+  content: "\4c";
+}
+.icon-selt {
+  content: "\4e";
+}
+.icon-sad {
+  content: "\4f";
+}
+.icon-followed {
+  content: "\5b";
+}
+.icon-addfollow {
+  content: "\5d";
+}
+.icon-shop {
+  content: "\5e";
+}
+.icon-add {
+  content: "\61";
+}
+.icon-add2 {
+  content: "\62";
+}
+.icon-bbs {
+  content: "\63";
+}
+.icon-clo {
+  content: "\64";
+}
+.icon-img {
+  content: "\65";
+}
+.icon-vdo {
+  content: "\66";
+}
+.icon-del {
+  content: "\67";
+}
+.icon-up {
+  content: "\68";
+}
+.icon-sx {
+  content: "\69";
+}
+.icon-search {
+  content: "\6a";
+}
+.icon-cls {
+  content: "\6b";
+}
+.icon-hot {
+  content: "\6c";
+}
+.icon-star {
+  content: "\6d";
+}
+.icon-hot2 {
+  content: "\6e";
+}
+.icon-dn {
+  content: "\6f";
+}
+.icon-cur {
+  content: "\70";
+}
+.icon-rt2 {
+  content: "\71";
+}
+.icon-suc {
+  content: "\72";
+}
+.icon-true {
+  content: "\73";
+}
+.icon-mail {
+  content: "\74";
+}
+.icon-phone {
+  content: "\75";
+}
+.icon-user {
+  content: "\76";
+}
+.icon-err-msg {
+  content: "\77";
+}
+.icon-hlogin {
+  content: "\78";
+}
+.icon-rin {
+  content: "\79";
+}
+.icon-start {
+  content: "\7e";
+}
+.icon-boy {
+  content: "\2015";
+}
+
 body {
   font-size: 18px;
   .bg_rgba {
@@ -22,5 +286,4 @@ body {
     border-radius: 10px;
     background: url(../images/timg.jpg);
   }
-  
 }

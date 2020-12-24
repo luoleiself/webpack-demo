@@ -26,7 +26,7 @@ window.onload = function () {
   var app = document.getElementById("app");
 
   app.innerHTML =
-    '<h1>webpack-demo</h1><p class="head">hello document</p><div class="bg_rgba"></div><div class="el-dropdown el-table"></div>';
+    '<div><a href="javascript:" class="icon-cls js-close">d</a></div><h1>webpack-demo</h1><p class="head">hello document</p><div class="bg_rgba"></div><div class="el-dropdown el-table"></div>';
 
   var imgEg = new Image();
 
